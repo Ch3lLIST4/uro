@@ -120,7 +120,7 @@ def is_new_param(params: list) -> bool:
 
 def main():
 	if not sys.stdin.isatty():
-		for line in sys.stdin:
+		for line in sys.stdin.buffer.raw:
 			parsed = urlparse(line.strip())
 			host = parsed.scheme + '://' + parsed.netloc
 			if host not in urlmap:
